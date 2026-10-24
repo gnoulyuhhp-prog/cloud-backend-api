@@ -1,0 +1,10 @@
+{
+  "name": "multi-hop-node",
+  "version": "1.0.0",
+  "description": "Lightweight HTTP/HTTPS forward proxy node for Multi-hop Lab",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {}
+}
