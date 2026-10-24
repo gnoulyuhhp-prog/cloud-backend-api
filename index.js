@@ -1,9 +1,9 @@
-const http = require('node:http');
-const https = require('node:https');
-const net = require('node:net');
-const url = require('node:url');
+import http from 'node:http';
+import https from 'node:https';
+import net from 'node:net';
+import url from 'node:url';
 
-const PORT = process.env.PORT || process.env.SERVER_PORT || 8853;
+const PORT = process.env.PORT || process.env.SERVER_PORT || 8000;
 
 // Hàm kiểm tra IP Egress của chính máy chủ này
 function fetchEgressIP(callback) {
@@ -65,7 +65,7 @@ const server = http.createServer((req, res) => {
   });
 });
 
-// 2. Xử lý đường hầm HTTPS CONNECT (Bảo mật tuyệt đối, không giải mã gói tin)
+// 2. Xử lý đường hầm HTTPS CONNECT
 server.on('connect', (req, clientSocket, head) => {
   const { port, hostname } = url.parse(`//${req.url}`, false, true);
 
@@ -76,7 +76,7 @@ server.on('connect', (req, clientSocket, head) => {
     clientSocket.pipe(serverSocket);
   });
 
-  serverSocket.on('error', (err) => {
+  serverSocket.on('error', () => {
     clientSocket.end('HTTP/1.1 502 Bad Gateway\r\n\r\n');
   });
 
