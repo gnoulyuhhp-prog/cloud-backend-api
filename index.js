@@ -1,7 +1,7 @@
-const http = require('http');
-const https = require('https');
-const net = require('net');
-const url = require('url');
+const http = require('node:http');
+const https = require('node:https');
+const net = require('node:net');
+const url = require('node:url');
 
 const PORT = process.env.PORT || process.env.SERVER_PORT || 8853;
 

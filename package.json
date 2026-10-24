@@ -2,6 +2,7 @@
   "name": "cloud-backend-api",
   "version": "1.0.0",
   "description": "Lightweight cloud backend web service",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
